@@ -29,7 +29,7 @@
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home Atlas</title>
+    <title>Epiverso</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
@@ -61,9 +61,9 @@
         <div class="container"><a class="navbar-brand" href="#page-top" style="color: rgb(38,201,201);border-color: #26c9c9;font-family: 'Averia Sans Libre', serif;">EPIVERSO</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="index.php">INICIO</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">JUEGO</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.php">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ABOUT</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.php">login</a></li>
                     <li class="nav-item">
                         <a class="btn btn-light action-button" role="button" style="color: rgb(38,201,201);background: rgb(255,255,255);" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign Up</a>
@@ -76,7 +76,7 @@
     <header class="masthead" style="background-image:url('assets/img/logo.png');">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in"><span>Aprende en un nuevo universo</span></div>
+                <div class="intro-lead-in"><span>Learn in a new universe</span></div>
                 <div class="intro-heading text-uppercase"><span style="font-family: 'Averia Sans Libre', serif;">EPIVERSO</span></div><a class="btn btn-primary btn-xl text-uppercase" role="button" href="login.php" style="background: rgb(38,201,201);">PLAY</a>
             </div>
         </div>
@@ -91,16 +91,16 @@
             </div>
             <div class="row text-center">
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-wrench fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Habilidades blandas</h4>
-                    <p class="text-muted">Incrementa tus competencias personales que muestran para desenvolverte en el ambiente laboral.</p>
+                    <h4 class="section-heading">Soft skills</h4>
+                    <p class="text-muted">Increase your personal skills that show to work with others.</p>
                 </div>
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span>
-                    <h4 class="section-heading">Negocios</h4>
-                    <p class="text-muted">Aprende de situaciones reales y resuelve problemas en el área de finanzas y negocios.</p>
+                    <h4 class="section-heading">Business</h4>
+                    <p class="text-muted">Learn from real situations and solve problems in the area of finance and business. </p>
                 </div>
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-file-code-o fa-stack-1x fa-inverse"></i></span>
                     <h4 class="section-heading">Ingenieria<br></h4>
-                    <p class="text-muted">Aquí podras aprender sobre temas de ingeniería y poner a prueba tus habilidades.</p>
+                    <p class="text-muted">Here you can learn about engineering topics and put your skills to the test.</p>
                 </div>
             </div>
         </div>
@@ -130,8 +130,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase" style="font-size: 50px;font-family: 'Averia Sans Libre', serif;">NIVELES</h2>
-                    <h3 class="text-muted section-subheading">Recolecta monedas y ayuda a otros usuarios para continuar al siguiente nivel.</h3>
+                    <h2 class="text-uppercase" style="font-size: 50px;font-family: 'Averia Sans Libre', serif;">Levels</h2>
+                    <h3 class="text-muted section-subheading">Collect coins and help other users to continue to the next level.</h3>
                 </div>
             </div>
             <div class="row">
@@ -141,7 +141,7 @@
                             <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>Nivel 1</h4>
+                                    <h4>Level 1</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -152,7 +152,7 @@
                             <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg"></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>Nivel 2</h4>
+                                    <h4>Level 2</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -163,7 +163,7 @@
                             <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg"></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>Nivel 3</h4>
+                                    <h4>Level 3</h4>
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
@@ -172,7 +172,8 @@
                         </li>
                         <li class="list-group-item timeline-inverted">
                             <div class="timeline-image" style="background: rgb(38,201,201);">
-                                <h4 style="font-size: 26px;">Final del juego</h4>
+                            <br>
+                                <h4 style="font-size: 26px;">Game over</h4>
                             </div>
                         </li>
                     </ul>
