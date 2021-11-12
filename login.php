@@ -1,5 +1,5 @@
 <?php
-    $server = "http://54.167.9.37";
+    $server = "http://localhost:81";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $url = $server.'/epiverso/logearse.php/';
         $data = [
@@ -17,11 +17,10 @@
 
         if($response[0] == 1){
             session_start();
-
             unset($_POST['user'],$_POST['password']);
             $_POST['id_user'] = $response[1];
             $_SESSION['POST'] = $_POST;
-            header("location: http://54.167.9.37/epiverso/menu.php");
+            header("location: http://localhost:81/epiverso/menu.php");
         }
     }
 ?>
