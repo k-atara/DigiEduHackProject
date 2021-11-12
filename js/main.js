@@ -1,15 +1,14 @@
-import * as THREE from "/build/three.module.js";
-import Stats from "/js/jsm/libs/stats.module.js";
-import {OrbitControls} from "/js/jsm/controls/OrbitControls.js";
-import {PLYLoader} from "/js/jsm/loaders/PLYLoader.js";
-import {OBJLoader} from "/js/jsm/loaders/OBJLoader.js";
-import {MTLLoader} from "/js/jsm/loaders/MTLLoader.js";
-import * as dat from "/js/jsm/libs/dat.gui.module.js";
-import { PointerLockControls } from '/js/jsm/controls/PointerLockControls.js';
+import * as THREE from "../assets/build/three.module.js";
+import Stats from "../js/jsm/libs/stats.module.js";
+// import {OrbitControls} from "/js/jsm/controls/OrbitControls.js";
+// import {PLYLoader} from "/js/jsm/loaders/PLYLoader.js";
+import {OBJLoader} from "../js/jsm/loaders/OBJLoader.js";
+import {MTLLoader} from "../js/jsm/loaders/MTLLoader.js";
+import * as dat from "../js/jsm/libs/dat.gui.module.js";
+import { PointerLockControls } from '../js/jsm/controls/PointerLockControls.js';
 import { RectAreaLightHelper }  from '../js/jsm/helpers/RectAreaLightHelper.js';
 
 "using strict";
-
 
 let renderer, scene, camera, camera2, camera3, camera4, skybox, stats, mesh, start, sprint, blockBox;
 let texture1, texture2, texture3, texture4, texture5, texture6;
@@ -142,7 +141,8 @@ var instancedChunk = [];
 var chunkMap = [];
 
 function init(){
-
+    id_user = document.getElementById("id_user").value
+    console.log(id_user)
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -567,132 +567,132 @@ function init(){
     });
 
 
-    texture1 = new THREE.TextureLoader().load('./../texture/bluecloud_ft.jpg');
-    texture2 = new THREE.TextureLoader().load('./../texture/bluecloud_bk.jpg');
-    texture3 = new THREE.TextureLoader().load('./../texture/bluecloud_up.jpg');
-    texture4 = new THREE.TextureLoader().load('./../texture/bluecloud_dn.jpg');
-    texture5 = new THREE.TextureLoader().load('./../texture/bluecloud_rt.jpg');
-    texture6 = new THREE.TextureLoader().load('./../texture/bluecloud_lf.jpg');
+    texture1 = new THREE.TextureLoader().load('./texture/bluecloud_ft.jpg');
+    texture2 = new THREE.TextureLoader().load('./texture/bluecloud_bk.jpg');
+    texture3 = new THREE.TextureLoader().load('./texture/bluecloud_up.jpg');
+    texture4 = new THREE.TextureLoader().load('./texture/bluecloud_dn.jpg');
+    texture5 = new THREE.TextureLoader().load('./texture/bluecloud_rt.jpg');
+    texture6 = new THREE.TextureLoader().load('./texture/bluecloud_lf.jpg');
     skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
 
-    let listSky = skyMenu.add(model, "defaultSky", model.listSkys).name("Sky list options").setValue("Blue").listen().onChange(function(item){
-        console.log(item);
-        if(item=="None"){
-            scene.remove(skybox);
-        }else if (item=="Blue Clouds"){
-            texture1 = new THREE.TextureLoader().load('./../texture/clouds1_east.bmp');
-            texture2 = new THREE.TextureLoader().load('./../texture/clouds1_west.bmp');
-            texture3 = new THREE.TextureLoader().load('./../texture/clouds1_up.bmp');
-            texture4 = new THREE.TextureLoader().load('./../texture/clouds1_down.bmp');
-            texture5 = new THREE.TextureLoader().load('./../texture/clouds1_north.bmp');
-            texture6 = new THREE.TextureLoader().load('./../texture/clouds1_south.bmp');
+    // let listSky = skyMenu.add(model, "defaultSky", model.listSkys).name("Sky list options").setValue("Blue").listen().onChange(function(item){
+    //     console.log(item);
+    //     if(item=="None"){
+    //         scene.remove(skybox);
+    //     }else if (item=="Blue Clouds"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/clouds1_east.bmp');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/clouds1_west.bmp');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/clouds1_up.bmp');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/clouds1_down.bmp');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/clouds1_north.bmp');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/clouds1_south.bmp');
             
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if(item=="Blue"){
-            texture1 = new THREE.TextureLoader().load('./../texture/bluecloud_ft.jpg');
-            texture2 = new THREE.TextureLoader().load('./../texture/bluecloud_bk.jpg');
-            texture3 = new THREE.TextureLoader().load('./../texture/bluecloud_up.jpg');
-            texture4 = new THREE.TextureLoader().load('./../texture/bluecloud_dn.jpg');
-            texture5 = new THREE.TextureLoader().load('./../texture/bluecloud_rt.jpg');
-            texture6 = new THREE.TextureLoader().load('./../texture/bluecloud_lf.jpg');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if(item=="Blue"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/bluecloud_ft.jpg');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/bluecloud_bk.jpg');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/bluecloud_up.jpg');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/bluecloud_dn.jpg');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/bluecloud_rt.jpg');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/bluecloud_lf.jpg');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if(item=="Yellow"){
-            texture1 = new THREE.TextureLoader().load('./../texture/yellowcloud_ft.jpg');
-            texture2 = new THREE.TextureLoader().load('./../texture/yellowcloud_bk.jpg');
-            texture3 = new THREE.TextureLoader().load('./../texture/yellowcloud_up.jpg');
-            texture4 = new THREE.TextureLoader().load('./../texture/yellowcloud_dn.jpg');
-            texture5 = new THREE.TextureLoader().load('./../texture/yellowcloud_rt.jpg');
-            texture6 = new THREE.TextureLoader().load('./../texture/yellowcloud_lf.jpg');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if(item=="Yellow"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/yellowcloud_ft.jpg');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/yellowcloud_bk.jpg');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/yellowcloud_up.jpg');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/yellowcloud_dn.jpg');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/yellowcloud_rt.jpg');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/yellowcloud_lf.jpg');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if(item=="Gray"){
-            texture1 = new THREE.TextureLoader().load('./../texture/graycloud_ft.jpg');
-            texture2 = new THREE.TextureLoader().load('./../texture/graycloud_bk.jpg');
-            texture3 = new THREE.TextureLoader().load('./../texture/graycloud_up.jpg');
-            texture4 = new THREE.TextureLoader().load('./../texture/graycloud_dn.jpg');
-            texture5 = new THREE.TextureLoader().load('./../texture/graycloud_rt.jpg');
-            texture6 = new THREE.TextureLoader().load('./../texture/graycloud_lf.jpg');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if(item=="Gray"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/graycloud_ft.jpg');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/graycloud_bk.jpg');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/graycloud_up.jpg');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/graycloud_dn.jpg');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/graycloud_rt.jpg');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/graycloud_lf.jpg');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if(item=="Brown"){
-            texture1 = new THREE.TextureLoader().load('./../texture/browncloud_ft.jpg');
-            texture2 = new THREE.TextureLoader().load('./../texture/browncloud_bk.jpg');
-            texture3 = new THREE.TextureLoader().load('./../texture/browncloud_up.jpg');
-            texture4 = new THREE.TextureLoader().load('./../texture/browncloud_dn.jpg');
-            texture5 = new THREE.TextureLoader().load('./../texture/browncloud_rt.jpg');
-            texture6 = new THREE.TextureLoader().load('./../texture/browncloud_lf.jpg');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if(item=="Brown"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/browncloud_ft.jpg');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/browncloud_bk.jpg');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/browncloud_up.jpg');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/browncloud_dn.jpg');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/browncloud_rt.jpg');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/browncloud_lf.jpg');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Red Dark"){
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Red Dark"){
 
-            texture1 = new THREE.TextureLoader().load('./../texture/bkg1_rt.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/bkg1_lf.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/bkg1_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/bkg1_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/bkg1_ft.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/bkg1_bk.png');
+    //         texture1 = new THREE.TextureLoader().load('./../texture/bkg1_rt.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/bkg1_lf.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/bkg1_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/bkg1_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/bkg1_ft.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/bkg1_bk.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Blue Dark"){
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Blue Dark"){
 
-            texture1 = new THREE.TextureLoader().load('./../texture/bkg2_rt.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/bkg2_lf.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/bkg2_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/bkg2_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/bkg2_ft.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/bkg2_bk.png');
+    //         texture1 = new THREE.TextureLoader().load('./../texture/bkg2_rt.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/bkg2_lf.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/bkg2_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/bkg2_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/bkg2_ft.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/bkg2_bk.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Blue Light"){
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Blue Light"){
 
-            texture1 = new THREE.TextureLoader().load('./../texture/bkg_rt.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/bkg_lf.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/bkg_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/bkg_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/bkg_ft.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/bkg_bk.png');
+    //         texture1 = new THREE.TextureLoader().load('./../texture/bkg_rt.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/bkg_lf.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/bkg_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/bkg_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/bkg_ft.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/bkg_bk.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Interestelar"){
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Interestelar"){
 
-            texture1 = new THREE.TextureLoader().load('./../texture/interstellar_ft.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/interstellar_bk.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/interstellar_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/interstellar_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/interstellar_rt.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/interstellar_lf.png');
+    //         texture1 = new THREE.TextureLoader().load('./../texture/interstellar_ft.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/interstellar_bk.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/interstellar_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/interstellar_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/interstellar_rt.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/interstellar_lf.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Nebulas"){
-            texture1 = new THREE.TextureLoader().load('./../texture/nebulas_lf.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/nebulas_rt.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/nebulas_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/nebulas_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/nebulas_ft.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/nebulas_bk.png');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Nebulas"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/nebulas_lf.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/nebulas_rt.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/nebulas_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/nebulas_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/nebulas_ft.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/nebulas_bk.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Space"){
-            texture1 = new THREE.TextureLoader().load('./../texture/space_ft.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/space_bk.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/space_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/space_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/space_rt.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/space_lf.png');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Space"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/space_ft.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/space_bk.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/space_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/space_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/space_rt.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/space_lf.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }else if (item=="Tron"){
-            texture1 = new THREE.TextureLoader().load('./../texture/tron_ft.png');
-            texture2 = new THREE.TextureLoader().load('./../texture/tron_bk.png');
-            texture3 = new THREE.TextureLoader().load('./../texture/tron_up.png');
-            texture4 = new THREE.TextureLoader().load('./../texture/tron_dn.png');
-            texture5 = new THREE.TextureLoader().load('./../texture/tron_rt.png');
-            texture6 = new THREE.TextureLoader().load('./../texture/tron_lf.png');
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }else if (item=="Tron"){
+    //         texture1 = new THREE.TextureLoader().load('./../texture/tron_ft.png');
+    //         texture2 = new THREE.TextureLoader().load('./../texture/tron_bk.png');
+    //         texture3 = new THREE.TextureLoader().load('./../texture/tron_up.png');
+    //         texture4 = new THREE.TextureLoader().load('./../texture/tron_dn.png');
+    //         texture5 = new THREE.TextureLoader().load('./../texture/tron_rt.png');
+    //         texture6 = new THREE.TextureLoader().load('./../texture/tron_lf.png');
 
-            skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
-        }
-    });
+    //         skyChange(texture1, texture2, texture3, texture4, texture5, texture6);
+    //     }
+    // });
 
 
     blockBox = new THREE.BoxGeometry(5, 5, 5)
@@ -845,7 +845,7 @@ document.addEventListener("keydown", function(e){
                             object.scale.set(.55, .333, .35)
                             object.rotation.y = object.rotation.y - (Math.PI/2);
                             
-                            console.log(object);
+                            // console.log(object);
                             instancedChunk.push(object);
                             scene.add(instancedChunk[instancedChunk.length -1]);
                         });
@@ -1294,11 +1294,382 @@ function renderLoop() {
         renderer.render(scene, camera); // DRAW SCENE
     }
     update();
+    putCity();
+    putPerson(70,3,170,3)
+    putPerson(90,3,90,4)
+    putPerson(120,3,70,5)
+
     stats.end();
     stats.update();
     render();
     requestAnimationFrame(renderLoop);
+    
+    
+    
+    
+    
+}
+
+function putCity(){
+    let mtlLoader = new MTLLoader();
+    mtlLoader.load('./assets/LowPolyCITY.mtl', function(materials) {
+        materials.preload();
+        var objLoader = new OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.load('./assets/LowPolyCITY.obj', function (object) {
+            object.position.y = object.position.y - 120.;
+            mesh = object;
+            // SCENE HIERARCHY
+            mesh.position.set(100,1, 100);
+            mesh.scale.set(40,40, 40)
+            scene.add(mesh);
+        });
+    });
+}
+function putPerson(x,y,z,question){
+    // const geometry = new THREE.BoxGeometry();
+    // const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    // const cube = new THREE.Mesh( geometry, material );
+    // cube.position.set(x,y,z);
+    // cube.scale.set(3,8,3)
+    // scene.add( cube );
+    // gettingCloser(cube.position, message)
+
+    var mtlLoader = new MTLLoader();
+    mtlLoader.load('./assets/person.mtl', function(materials) {
+        materials.preload();
+        var objLoader = new OBJLoader();
+        objLoader.setMaterials(materials);
+        objLoader.load('./assets/person.obj', function (object) {
+            object.position.y = object.position.y - 120.;
+            mesh = object;
+            mesh.position.set(x,y,z);
+            mesh.scale.set(1,1,1)
+            // SCENE HIERARCHY
+            scene.add(mesh);
+            gettingCloser(mesh.position, question)
+
+        });
+    });
+}
+var message_shown = false
+function gettingCloser(person, question){
+    if(distance(person, player) < 10 && message_shown == false){
+        // text2.innerHTML = message
+        getQuestion(question)
+        // controls.unlock();
+        message_shown = true
+    }else if (distance(person, player) > 10 && distance(person, player) < 20){
+        closeMessage()
+        message_shown = false
+
+    }
+}
+
+
+function distance (person, player) {
+    var deltaX = diff(person.x, player.x);
+    var deltaY = diff(person.z, player.z);
+    var dist = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+    return (dist);
+}; 
+function diff (num1, num2) {
+    if (num1 > num2) {
+      return (num1 - num2);
+    } else {
+      return (num2 - num1);
+    }
+};
+function getQuestion(id) {
+    fetch('./services/readquestion.php?id='+id, {
+        method: 'GET',
+    }).then(
+        response => response.json()
+    ).then(
+        response => {
+            var pregunta = response[0].slice(0,1)[0]
+            var tipo = response[0].slice(1,2)[0]
+            var respuestas = response[0].slice(2, 6)
+            var id_pregunta = response[0].slice(6,7)
+            var coins = response[0].slice(7,8)
+            mission(pregunta, respuestas, tipo, id_pregunta,coins)
+        }
+    ).catch(
+        error => console.log(error)
+    )
+}
+function closeMessage(){
+    try{
+        var temp = document.getElementsByClassName("card")
+        while(temp.length > 0){
+            temp[0].parentNode.removeChild(temp[0]);
+        }
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+function mission(question, answer, type, id_question,coins){
+    try{
+        var temp = document.getElementsByClassName("card")
+        while(temp.length > 0){
+            temp[0].parentNode.removeChild(temp[0]);
+        }
+    }
+    catch(e){
+        console.log(e);
+    }
+    var message1 = `
+    <div class="container">
+    <br><br><br>
+    <img src="./assets/bulb.png" width="100" height="100">
+    <br><br>
+    <div class="row">
+            <div class="col-md-10">`+question+`
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+            <div class="col-md-5">
+                <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="success-outlined" >All right</label>
+            </div>
+        </div>
+    </div>
+    `
+    
+    var message2 = `
+    <img src="./assets/coin.png" width="100" height="100">
+        <div class="container" >
+            <div class="row">
+                <div class="col-md-12">
+                    `+question+`
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+       
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col">
+                </div>
+                <div class="col-md-9">
+                    <div id="temp_div" >
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                <label class="btn btn-outline-success" for="success-outlined" onClick="validateCloseAnswer(`+id_question+`,`+coins+`)">Send</label>
+                
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        </div>
+    `
+    var message3 = `
+    <br><br><br>
+    <img src="./assets/coin.png" width="100" height="100">
+    <br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">`+question+`
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">:</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Answer" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <input type="radio" class="btn-check" name="options-outlined"  id="success-outlined" autocomplete="off" checked>
+            <label class="btn btn-outline-success" for="success-outlined" onClick="validateCloseAnswer(`+id_question+`,`+2+`)">Send</label>
+
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    </div>
+    `
+    var message = ''
+    switch(type){
+        case 'informativa':
+            message = message1
+        break;
+        case 'cerrada':
+            message = message2
+        break;
+        case 'abierta':
+            message = message3
+        break;
+        default:
+            break
+    }
+    
+
+    var text2 = document.createElement('div');
+    text2.className = "card"
+    text2.style.position = 'absolute';
+    //text2.style.zIndex = 1;
+    text2.style.width = 40 + 'rem';
+    text2.style.height = 35 + 'rem';
+    text2.style.backgroundColor = "aqua";
+    text2.innerHTML = message
+    text2.style.top = 150 + 'px';
+    text2.style.left = 140 + 'px';
+    document.body.appendChild(text2);
+    try{
+        var temp_div = document.getElementById('temp_div')
+        answer.forEach( function (element, i){
+            i=i+1
+            if(element != ''){
+                // console.log(temp_div.innerHTML)
+                temp_div.innerHTML = temp_div.innerHTML+
+                ` <div class="row">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="radio`+i+`" value="`+i+`">
+                            <label class="form-check-label" for="inlineRadio1">
+                            `+element+`
+                            </label>
+                        </div>
+                    </div>`
+                }
+            }
+        )
+    }
+    catch(e){
+    }
+}
+
+
+
+
+function wrongAnswer(){
+
 }
 
 // EVENT LISTENERS & HANDLERS
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init)
+
+
+function score(){
+    var personal_score_text = document.createElement('div');
+
+    function personal(id){
+        fetch('./services/readpersonalscore.php?id='+id, {
+            method: 'GET',
+        }).then(
+            response => response.json()
+        ).then(
+            response => {
+                personal_score_text.style.position = 'absolute';
+                //personal_score_text.style.zIndex = 1;
+                personal_score_text.style.width = 10 + 'rem';
+                personal_score_text.style.height = 2 + 'rem';
+                personal_score_text.style.backgroundColor = "yellow";
+                personal_score_text.innerHTML =  "Personal coins: "+response[0].slice(0,1)[0]
+                personal_score_text.style.top = 1 + 'px';
+                personal_score_text.style.left = 50 + '%';
+                document.body.appendChild(personal_score_text);
+            }
+        ).catch(
+            error => console.log(error)
+        )
+    }
+    window.setInterval(personal, 500, id_user);
+
+    var global_score_text = document.createElement('div');
+    function global(id){
+        fetch('./services/readglobalscore.php?', {
+            method: 'GET',
+        }).then(
+            response => response.json()
+        ).then(
+            response => {
+                // console.log(response.length)
+                var global_score = 
+                `
+                <table>
+                    <tr>
+                        <th>Player </th>
+                        <th>  Coins</th>
+                    </tr>
+                    <tr>
+                        <td>`+response[0][0]+`</td>
+                        <td>`+response[0][1]+`</td>
+                    </tr>
+                    <tr>
+                        <td>`+response[1][0]+`</td>
+                        <td>`+response[1][1]+`</td>
+                    </tr>
+                    <tr>
+                        <td>`+response[2][0]+`</td>
+                        <td>`+response[2][1]+`</td>
+                    </tr>
+              </table>
+                `
+                global_score_text.style.position = 'absolute';
+                //global_score_text.style.zIndex = 1;
+                global_score_text.style.width = 8 + 'rem';
+                global_score_text.style.height = 6.3 + 'rem';
+                global_score_text.style.backgroundColor = "yellow";
+                global_score_text.innerHTML =  global_score
+                global_score_text.style.top = 1 + 'px';
+                global_score_text.style.left = 20 + '%';
+                document.body.appendChild(global_score_text);
+            }
+        ).catch(
+            error => console.log(error)
+        )
+    }
+    window.setInterval(global, 500);
+
+
+
+
+
+}
+document.addEventListener("DOMContentLoaded", score)
