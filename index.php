@@ -1,5 +1,5 @@
 <?php
-    $server = "http://localhost";
+    $server = "http://54.167.9.37";
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $url = $server.'/epiverso/createuser.php/';
         $data = [
