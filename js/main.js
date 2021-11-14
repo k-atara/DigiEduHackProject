@@ -141,6 +141,11 @@ var instancedChunk = [];
 var chunkMap = [];
 
 function init(){
+    putCity();
+    putPerson(70,3,170,3)
+    putPerson(90,3,90,4)
+    putPerson(120,3,70,5)
+
     id_user = document.getElementById("id_user").value
     console.log(id_user)
     scene = new THREE.Scene();
@@ -1294,10 +1299,11 @@ function renderLoop() {
         renderer.render(scene, camera); // DRAW SCENE
     }
     update();
-    putCity();
-    putPerson(70,3,170,3)
-    putPerson(90,3,90,4)
-    putPerson(120,3,70,5)
+  
+
+    gettingCloser({'x':70,'y':3,'z':170}, 3)
+    gettingCloser({'x':90,'y':3,'z':90}, 4)
+    gettingCloser({'x':120,'y':3,'z':70}, 4)
 
     stats.end();
     stats.update();
@@ -1347,7 +1353,6 @@ function putPerson(x,y,z,question){
             mesh.scale.set(1,1,1)
             // SCENE HIERARCHY
             scene.add(mesh);
-            gettingCloser(mesh.position, question)
 
         });
     });
